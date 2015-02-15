@@ -57,16 +57,16 @@ function messageShouldBubble( message ) {
 	}
 	
 	return gitHubAccounts.some( function( gitHubAccount ) {
-		return
-			( ~ raw.indexOf( Utilities.formatString(
-				'X-GitHub-Sender: %s',
-				gitHubAccount
-			) ) )
-		||
-			( ~ raw.indexOf( Utilities.formatString(
-				'@%s',
-				gitHubAccount
-			) ) );
+		var sender = raw.indexOf( Utilities.formatString(
+			'X-GitHub-Sender: %s',
+			gitHubAccount
+		) );
+		var mention = raw.indexOf( Utilities.formatString(
+			'@%s',
+			gitHubAccount
+		) );
+
+		return ( ~ sender ) || ( ~ mention );
 	} );
 }
 
