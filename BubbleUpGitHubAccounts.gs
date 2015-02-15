@@ -19,14 +19,22 @@ var gitHubAccounts = [];
 var gmailLabel = '';
 
 /**
+ * Google Apps Script Gmail API
+ * @external GmailApp
+ * @see {@link https://developers.google.com/apps-script/reference/gmail/}
+ */
+
+/**
  * Google Apps Script Gmail Message Object
- * @external GmailMessage
+ * @class GmailMessage
+ * @memberof external:GmailApp
  * @see {@link https://developers.google.com/apps-script/reference/gmail/gmail-message}
  */
 
 /**
  * Google Apps Script Gmail Thread Object
- * @external GmailThread
+ * @class GmailThread
+ * @memberof external:GmailApp
  * @see {@link https://developers.google.com/apps-script/reference/gmail/gmail-thread}
  */
 
@@ -38,7 +46,7 @@ var gmailLabel = '';
  * (`X-GitHub-Reason: ...`), or if it was sent on behalf of one of the
  * whitelisted users from {@link gitHubAccounts}.
  *
- * @params {external:GmailMessage}
+ * @param {external:GmailApp.GmailMessage}
  * @return {Boolean}
  */
 function messageShouldBubble( message ) {
@@ -68,7 +76,7 @@ function messageShouldBubble( message ) {
  * A thread bubbles if it contains any message which bubbles.
  * @see messageShouldBubble
  *
- * @params {external:GmailMessage}
+ * @param {external:GmailApp.GmailThread}
  * @return {Boolean}
  */
 function threadShouldBubble( thread ) {
