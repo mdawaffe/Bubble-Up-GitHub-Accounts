@@ -94,7 +94,7 @@ function threadShouldBubble( thread ) {
  */
 function main() {
 	/*
- 	 * Google App Scripts are fastest when read and write operations are
+	 * Google App Scripts are fastest when read and write operations are
 	 * batched. Alternating between read and write is slow, so we do write
 	 * operation on many threads/messages at once rather than looping
 	 * through them and reading from/writing to each in turn.
